@@ -1,0 +1,127 @@
+#! C:/Program Files/Nuke10.0v5/nuke-10.0.5.dll -nx
+#write_info Write1 file:"F:/Google Drive/projects/factions/Assets/Textures/ui/sysSelect.tif" format:"2048 2048 1" chans:":rgba.red:rgba.green:rgba.blue:rgba.alpha:" framerange:"1001 1002" fps:"0" colorspace:"default (sRGB)" datatype:"8 bit" transfer:"unknown" views:"main" colorManagement:"Nuke"
+version 10.0 v5
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="-8" y="-8" w="1936" h="1186" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="0"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1916" stretch="1"/>
+            <splitter orientation="2">
+                <split size="862"/>
+                <splitter orientation="1">
+                    <split size="1916"/>
+                    <dock id="" activePageId="DAG.1">
+                        <page id="DAG.1"/>
+                    </dock>
+                </splitter>
+                <split size="256"/>
+                <splitter orientation="1">
+                    <split size="1916"/>
+                    <dock id="" activePageId="DopeSheet.1">
+                        <page id="DopeSheet.1"/>
+                        <page id="Curve Editor.1"/>
+                        <page id="uk.co.thefoundry.scripteditor.1"/>
+                    </dock>
+                </splitter>
+            </splitter>
+        </splitter>
+    </window>
+    <window x="-1920" y="0" w="1920" h="1200" fullscreen="1" screen="1">
+        <splitter orientation="2">
+            <split size="1200"/>
+            <dock id="" activePageId="Viewer.1" focus="true">
+                <page id="Viewer.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name "F:/Google Drive/projects/factions/Assets/Textures/src/ui.nk"
+ frame 1001
+ first_frame 1001
+ last_frame 1002
+ lock_range true
+ format "2048 2048 0 0 2048 2048 1 square_2K"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ proxy_scale 1
+ proxySetting always
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Radial {
+ inputs 0
+ area {0 0 2048 2048}
+ softness 0
+ name Radial1
+ xpos -381
+ ypos 11
+}
+Radial {
+ area {100 100 1948 1948}
+ softness 0
+ color 0
+ name Radial2
+ xpos -381
+ ypos 35
+}
+Transform {
+ scale 0.99
+ center {1024 1024}
+ shutteroffset centred
+ name Transform1
+ xpos -381
+ ypos 59
+}
+Constant {
+ inputs 0
+ channels rgb
+ color 1
+ name Constant1
+ xpos -471
+ ypos -108
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy1
+ xpos -471
+ ypos 92
+}
+set N683af400 [stack 0]
+push 0
+push 0
+Viewer {
+ inputs 3
+ frame_range 1001-1002
+ input_number 2
+ input_process false
+ name Viewer1
+ xpos 94
+ ypos -29
+}
+push $N683af400
+Write {
+ channels rgba
+ file "F:/Google Drive/projects/factions/Assets/Textures/ui/sysSelect.tif"
+ file_type tiff
+ compression none
+ checkHashOnRead false
+ version 1
+ name Write1
+ selected true
+ xpos -471
+ ypos 128
+}

@@ -1,0 +1,484 @@
+#! C:/Program Files/Nuke10.0v5/nuke-10.0.5.dll -nx
+version 10.0 v5
+define_window_layout_xml {<?xml version="1.0" encoding="UTF-8"?>
+<layout version="1.0">
+    <window x="-8" y="-8" w="1936" h="1186" maximized="1" screen="0">
+        <splitter orientation="1">
+            <split size="0"/>
+            <dock id="" hideTitles="1" activePageId="Toolbar.1">
+                <page id="Toolbar.1"/>
+            </dock>
+            <split size="1916" stretch="1"/>
+            <splitter orientation="2">
+                <split size="862"/>
+                <splitter orientation="1">
+                    <split size="1916"/>
+                    <dock id="" activePageId="DAG.1" focus="true">
+                        <page id="DAG.1"/>
+                    </dock>
+                </splitter>
+                <split size="256"/>
+                <splitter orientation="1">
+                    <split size="1916"/>
+                    <dock id="" activePageId="Curve Editor.1">
+                        <page id="DopeSheet.1"/>
+                        <page id="Curve Editor.1"/>
+                        <page id="uk.co.thefoundry.scripteditor.1"/>
+                    </dock>
+                </splitter>
+            </splitter>
+        </splitter>
+    </window>
+    <window x="-1920" y="0" w="1920" h="1200" fullscreen="1" screen="1">
+        <splitter orientation="2">
+            <split size="1200"/>
+            <dock id="" activePageId="Viewer.1">
+                <page id="Viewer.1"/>
+            </dock>
+        </splitter>
+    </window>
+</layout>
+}
+Root {
+ inputs 0
+ name "F:/Google Drive/projects/factions/Assets/Textures/src/Planet_01.nk"
+ frame 1001
+ first_frame 1001
+ last_frame 1050
+ lock_range true
+ format "2048 2048 0 0 2048 2048 1 square_2K"
+ proxy_type scale
+ proxy_format "1024 778 0 0 1024 778 1 1K_Super_35(full-ap)"
+ proxy_scale 1
+ proxySetting always
+ colorManagement Nuke
+ workingSpaceLUT linear
+ monitorLut sRGB
+ int8Lut sRGB
+ int16Lut sRGB
+ logLut Cineon
+ floatLut linear
+}
+Noise {
+ inputs 0
+ size 200
+ zoffset 2.94
+ lacunarity 1.26
+ gain 0.89
+ gamma 0.185
+ center {1024 1024}
+ name Noise3
+ xpos -1216
+ ypos 4
+}
+Noise {
+ inputs 0
+ size 410
+ zoffset 2.94
+ lacunarity 1.26
+ gain 1
+ gamma 0.17
+ center {1024 1024}
+ name Noise4
+ xpos -1071
+ ypos -61
+}
+FilterErode {
+ size 17.5
+ name FilterErode2
+ xpos -1071
+ ypos -37
+}
+Grade {
+ channels alpha
+ blackpoint -0.18
+ whitepoint 0.66
+ black 0.11
+ white 0.32
+ multiply 3.15
+ gamma 0.4
+ black_clamp false
+ name Grade2
+ xpos -1071
+ ypos 18
+}
+ChannelMerge {
+ inputs 2
+ name ChannelMerge2
+ xpos -1071
+ ypos 54
+ disable true
+}
+Blur {
+ channels rgba
+ size 20.5
+ name Blur2
+ label "\[value size]"
+ xpos -1071
+ ypos 102
+}
+Noise {
+ inputs 0
+ size 56
+ lacunarity 4.15
+ gamma 0.87
+ center {1024 1024}
+ name Noise7
+ xpos -936
+ ypos -240
+}
+Constant {
+ inputs 0
+ channels rgb
+ color {0.07552369684 0.05095259473 -0.1144763008 0}
+ format "2048 2048 0 0 2048 2048 1 square_2K"
+ name Constant4
+ xpos -958
+ ypos -157
+}
+Grade {
+ inputs 1+1
+ white {0.3880666494 0.3898666203 0.3920666575 0.3700000048}
+ name Grade5
+ xpos -958
+ ypos -85
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy3
+ xpos -852
+ ypos 231
+}
+Premult {
+ name Premult3
+ xpos -852
+ ypos 267
+}
+Noise {
+ inputs 0
+ size 200
+ zoffset 2.94
+ lacunarity 1.26
+ gain 0.89
+ gamma 0.185
+ center {1024 1024}
+ name Noise2
+ xpos -697
+ ypos -119
+}
+Noise {
+ inputs 0
+ size 410
+ zoffset 2.94
+ lacunarity 1.26
+ gain 0.89
+ gamma 0.185
+ center {1024 1024}
+ name Noise1
+ xpos -552
+ ypos -129
+}
+Grade {
+ channels alpha
+ whitepoint 0.8
+ white 1.66
+ multiply 4
+ gamma 1.28
+ black_clamp false
+ name Grade1
+ xpos -552
+ ypos -105
+}
+ChannelMerge {
+ inputs 2
+ name ChannelMerge1
+ xpos -552
+ ypos -69
+}
+set N7ef9e800 [stack 0]
+FilterErode {
+ size 28
+ name FilterErode1
+ xpos -552
+ ypos -21
+}
+Blur {
+ channels rgba
+ size 26
+ name Blur1
+ label "\[value size]"
+ xpos -552
+ ypos 15
+}
+Noise {
+ inputs 0
+ size 36
+ center {1024 1024}
+ name Noise6
+ xpos -700
+ ypos -235
+}
+Constant {
+ inputs 0
+ channels rgb
+ color {0.03779684752 0.1040000021 0.02934537642 0}
+ format "2048 2048 0 0 2048 2048 1 square_2K"
+ name Constant3
+ xpos -817
+ ypos -162
+}
+Grade {
+ inputs 1+1
+ white 0.58
+ multiply {0.5350000262 0.9500001073 1.065000057 1}
+ name Grade4
+ xpos -817
+ ypos -90
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy2
+ xpos -716
+ ypos 18
+}
+Premult {
+ name Premult2
+ xpos -716
+ ypos 54
+}
+push $N7ef9e800
+Dot {
+ name Dot2
+ xpos -292
+ ypos 7
+}
+push $N7ef9e800
+Constant {
+ inputs 0
+ channels rgb
+ color {0.1655406356 0.1789187193 0.1415406317 0}
+ format "2048 2048 0 0 2048 2048 1 square_2K"
+ name Constant1
+ xpos -377
+ ypos -208
+}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 rgba.alpha
+ name Copy1
+ xpos -393
+ ypos -40
+}
+add_layer {land land.alpha}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 land.alpha
+ name Copy5
+ xpos -393
+ ypos 24
+}
+Premult {
+ name Premult1
+ xpos -393
+ ypos 71
+}
+Noise {
+ inputs 0
+ size 16
+ center {1024 1024}
+ name Noise5
+ xpos -47
+ ypos -168
+}
+set N7e19b800 [stack 0]
+Dot {
+ name Dot1
+ xpos -73
+ ypos -61
+}
+push $N7e19b800
+Constant {
+ inputs 0
+ channels rgb
+ color {0.03465000167 0.07450739294 0.1979999989 0}
+ format "2048 2048 0 0 2048 2048 1 square_2K"
+ name Constant2
+ xpos -241
+ ypos -214
+}
+Grade {
+ inputs 1+1
+ multiply 1.34
+ name Grade3
+ xpos -236
+ ypos -90
+}
+add_layer {water water.alpha}
+Copy {
+ inputs 2
+ from0 rgba.alpha
+ to0 water.alpha
+ name Copy4
+ xpos -241
+ ypos 39
+}
+Merge2 {
+ inputs 2
+ also_merge all
+ name Merge1
+ xpos -252
+ ypos 148
+}
+Merge2 {
+ inputs 2
+ also_merge all
+ name Merge2
+ xpos -285
+ ypos 210
+}
+Merge2 {
+ inputs 2
+ also_merge all
+ name Merge3
+ xpos -312
+ ypos 348
+}
+set N833a0000 [stack 0]
+Grade {
+ channels water
+ white 4
+ gamma 3.75
+ name Grade6
+ xpos -226
+ ypos 375
+}
+push $N833a0000
+Dot {
+ name Dot3
+ xpos -84
+ ypos 337
+}
+ChannelMerge {
+ inputs 2
+ A water.alpha
+ operation out
+ B land.alpha
+ name ChannelMerge3
+ xpos -118
+ ypos 408
+}
+Shuffle {
+ red alpha
+ green alpha
+ blue alpha
+ name Shuffle1
+ label "\[value in]"
+ xpos -118
+ ypos 456
+}
+Write {
+ channels rgba
+ file "F:/Google Drive/projects/factions/Assets/Textures/Planets/Planet_01_spec.tif"
+ file_type tiff
+ compression none
+ checkHashOnRead false
+ version 5
+ name Write2
+ xpos -118
+ ypos 492
+}
+Noise {
+ inputs 0
+ size 16.5
+ zoffset {{frame*speed}}
+ lacunarity 1.86
+ gain 0.61
+ gamma 0.79
+ center {1024 1024}
+ name Noise8
+ xpos 314
+ ypos 13
+ addUserKnob {20 User}
+ addUserKnob {7 speed}
+ speed 0.04
+}
+TimeClip {
+ time ""
+ first 1001
+ before bounce
+ last 1024
+ after bounce
+ origfirst 1001
+ origlast 1050
+ origset true
+ name TimeClip1
+ xpos 314
+ ypos 37
+}
+push $N833a0000
+Write {
+ file "F:/Google Drive/projects/factions/Assets/Textures/Planets/Planet_01_rgb.tif"
+ file_type tiff
+ compression none
+ checkHashOnRead false
+ version 2
+ name Write1
+ xpos -301
+ ypos 553
+}
+Noise {
+ inputs 0
+ size 16.5
+ zoffset {{curve L x1001 40 x1025 41 x1050 40.08}}
+ lacunarity 1.86
+ gain 0.61
+ gamma 0.79
+ center {1024 1024}
+ name Noise9
+ xpos 243
+ ypos 117
+ addUserKnob {20 User}
+ addUserKnob {7 speed}
+ speed 0.04
+}
+ContactSheet {
+ width 2048
+ rows 8
+ columns 8
+ roworder TopBottom
+ splitinputs true
+ startframe 1001
+ endframe 1050
+ name ContactSheet1
+ xpos 243
+ ypos 141
+ addUserKnob {20 set_inputs_tab l "Set Inputs"}
+ addUserKnob {4 orientation_pulldown l Orientation: M {x y}}
+ addUserKnob {4 order_pulldown l Order M {forward backward}}
+ addUserKnob {22 set_inputs_button l "Set Inputs" -STARTLINE T "import contactSheetTools as cst\ncst.set_ContactSheetInputs(csnode=nuke.thisNode(), sel=nuke.selectedNodes(), orientation=nuke.thisNode()\['orientation_pulldown'].value(), reverse=nuke.thisNode()\['order_pulldown'].value())"}
+}
+Write {
+ file "F:/Google Drive/projects/factions/Assets/Textures/Stars/StarTurbMap_01.tif"
+ file_type tiff
+ compression none
+ checkHashOnRead false
+ version 4
+ name Write3
+ xpos 243
+ ypos 233
+}
+Viewer {
+ inputs 3
+ frame_range 1001-1050
+ colour_sample_bbox {-1 0.7495999932 -0.7505999804 1}
+ input_process false
+ name Viewer1
+ xpos 94
+ ypos -29
+}
